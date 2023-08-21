@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bjmfxonndfc3c"]
+
+[ext_resource type="FontFile" uid="uid://v8mtymolbscs" path="res://assets/fonts/retro-pixel-font-otf-v2023.07.12/cute-mono/retro-pixel-cute-mono.otf" id="1_ati8e"]
+[ext_resource type="FontFile" uid="uid://bpxfl8g1weinp" path="res://assets/fonts/retro-pixel-font-otf-v2023.07.12/thick/retro-pixel-thick.otf" id="1_o0whl"]
+
+[resource]
+default_font = ExtResource("1_ati8e")
+default_font_size = 6
+MarginContainer/constants/margin_bottom = 6
+MarginContainer/constants/margin_left = 6
+MarginContainer/constants/margin_right = 6
+MarginContainer/constants/margin_top = 6
+ThiccLabel/base_type = &"Label"
+ThiccLabel/font_sizes/font_size = 12
+ThiccLabel/fonts/font = ExtResource("1_o0whl")
