@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btarybkof8kvm"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6kjje"]
-[ext_resource type="PackedScene" uid="uid://bdyagsbemnurm" path="res://scenes/main_3d.tscn" id="2_lkleg"]
+[ext_resource type="PackedScene" uid="uid://bdrvtitt0ghnb" path="res://scenes/main.tscn" id="2_6qt38"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_6kjje")
-main = ExtResource("2_lkleg")
+main = ExtResource("2_6qt38")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2

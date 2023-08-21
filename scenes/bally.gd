@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor and Input.is_action_just_pressed("jump"):
 		velocity.y = -jump_speed
+		Debug.dprint("jump")
 	
 	velocity.x = move_toward(velocity.x, speed * move_input, acceleration * delta)
 	
