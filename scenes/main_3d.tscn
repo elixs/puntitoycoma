@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdyagsbemnurm"]
+
+[ext_resource type="PackedScene" uid="uid://dwnsy851be6og" path="res://scenes/ball_3d.tscn" id="1_du5ao"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_80y6i"]
+bounce = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gedun"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf354"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rgnq2"]
+
+[sub_resource type="Sky" id="Sky_tn42n"]
+sky_material = SubResource("PanoramaSkyMaterial_rgnq2")
+
+[sub_resource type="Environment" id="Environment_eocnx"]
+background_mode = 2
+background_energy_multiplier = 2.18
+sky = SubResource("Sky_tn42n")
+
+[node name="Main3D" type="Node3D"]
+
+[node name="Ball3D" parent="." instance=ExtResource("1_du5ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.27022, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_80y6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_gedun")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_nf354")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.955129, 0.296192, 0, -0.296192, 0.955129, 0, 3.57455, 5.1775)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26841, 1.80925)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eocnx")

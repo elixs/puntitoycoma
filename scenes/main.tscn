@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdrvtitt0ghnb"]
+
+[ext_resource type="PackedScene" uid="uid://brew11y4w8imh" path="res://scenes/floor.tscn" id="1_r78ef"]
+[ext_resource type="PackedScene" uid="uid://bgp70vmwf436p" path="res://scenes/bally.tscn" id="2_5ly8o"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_r78ef")]
+position = Vector2(126, 180)
+scale = Vector2(4, 1)
+
+[node name="Bally" parent="." instance=ExtResource("2_5ly8o")]
+position = Vector2(108, 7)
