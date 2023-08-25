@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vwotnogl62cd"]
+
+[ext_resource type="Texture2D" uid="uid://d0magksdpggwp" path="res://icon.svg" id="1_7b8pr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvngf"]
+size = Vector2(128, 128)
+
+[node name="Floor" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_7b8pr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_bvngf")

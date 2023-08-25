@@ -8,6 +8,10 @@ var gravity = 400
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivot: Node2D = $Pivot
+@onready var cheese_spawn: Marker2D = $Pivot/CheeseSpawn
+
+@export var cheese_scene: PackedScene
+
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -26,6 +30,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, speed * move_input, acceleration * delta)
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("cheese"):
+		fire()
 	
 	# animation
 	
@@ -48,3 +55,9 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
 		print("test")
+
+func fire():
+	var cheese = cheese_scene.instantiate()
+	get_parent().add_child(cheese)
+	cheese.global_position = cheese_spawn.global_position
+	cheese.rotation = cheese_spawn.global_position.direction_to(get_global_mouse_position()).angle()
