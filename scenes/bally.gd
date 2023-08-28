@@ -11,6 +11,7 @@ var gravity = 400
 @onready var cheese_spawn: Marker2D = $Pivot/CheeseSpawn
 
 @export var cheese_scene: PackedScene
+@onready var cheese_counter: MarginContainer = $CanvasLayer/CheeseCounter
 
 
 func _ready() -> void:
@@ -23,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if is_on_floor and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -jump_speed
 		Debug.dprint("jump")
 	
@@ -57,7 +58,10 @@ func _input(event: InputEvent) -> void:
 		print("test")
 
 func fire():
+	if not cheese_scene:
+		return
 	var cheese = cheese_scene.instantiate()
 	get_parent().add_child(cheese)
 	cheese.global_position = cheese_spawn.global_position
 	cheese.rotation = cheese_spawn.global_position.direction_to(get_global_mouse_position()).angle()
+	Game.cheese += 1

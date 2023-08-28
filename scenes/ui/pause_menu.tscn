@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://btarybkof8kvm"]
+[gd_scene load_steps=3 format=3 uid="uid://cod382ll076sq"]
 
-[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6kjje"]
-[ext_resource type="PackedScene" uid="uid://bdrvtitt0ghnb" path="res://scenes/main.tscn" id="2_6qt38"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_ynim4"]
 
-[node name="MainMenu" type="MarginContainer"]
+
+[node name="PauseMenu" type="MarginContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-script = ExtResource("1_6kjje")
-main = ExtResource("2_6qt38")
+script = ExtResource("1_ynim4")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(100, 0)
@@ -28,24 +27,25 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"ThiccLabel"
-text = "·,"
+text = "Pause"
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Start"
+text = "Resume"
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Credits"
+text = "Retry"
 
-[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Settings"
+text = "Menu"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Exit
-"
+text = "Exit"
