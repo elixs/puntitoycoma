@@ -13,6 +13,7 @@ script = ExtResource("1_n7ufq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
