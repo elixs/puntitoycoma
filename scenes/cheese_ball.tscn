@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://sv233v7wxjpm"]
+
+[ext_resource type="Script" path="res://scenes/cheese_ball.gd" id="1_s4xy0"]
+[ext_resource type="Texture2D" uid="uid://bsq3f8o8gwodl" path="res://assets/textures/Cheese.png" id="2_r03j4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mxoh6"]
+
+[node name="Cheese" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_s4xy0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mxoh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.785398
+texture = ExtResource("2_r03j4")
+flip_h = true

@@ -334,11 +334,13 @@ texture = ExtResource("2_x5803")
 vframes = 6
 
 [node name="CheeseSpawn" type="Marker2D" parent="Pivot"]
-position = Vector2(17, -26)
+position = Vector2(10, -23)
 
-[node name="A" type="Sprite2D" parent="Pivot"]
-position = Vector2(1, -18)
+[node name="Node2D" type="Node2D" parent="Pivot"]
+position = Vector2(-0.93, -18)
 rotation = -0.488699
+
+[node name="A" type="Sprite2D" parent="Pivot/Node2D"]
 scale = Vector2(0.123915, 0.123915)
 texture = ExtResource("3_c02q0")
 
@@ -360,5 +362,4 @@ anim_player = NodePath("../AnimationPlayer")
 visible = false
 
 [node name="CheeseCounter" parent="CanvasLayer" instance=ExtResource("7_lyk3e")]
-offset_right = -203.0
-offset_bottom = -120.0
+metadata/_edit_lock_ = true

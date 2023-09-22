@@ -3,8 +3,8 @@ extends MarginContainer
 @onready var start: Button = %Start
 @onready var exit: Button = %Exit
 
-#var main = preload("res://scenes/main.tscn")
-@export var main: PackedScene
+var main = "res://scenes/main.tscn"
+#@export var main: PackedScene
 
 func _ready() -> void:
 	start.pressed.connect(_on_start_pressed)
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_start_pressed():
 	if main:
-		get_tree().change_scene_to_packed(main)
+		get_tree().change_scene_to_file(main)
 
 
 func _on_exit_pressed():

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cod382ll076sq"]
+[gd_scene load_steps=2 format=3 uid="uid://cod382ll076sq"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_ynim4"]
-
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 3

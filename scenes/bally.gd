@@ -1,3 +1,4 @@
+class_name Bally
 extends CharacterBody2D
 
 @export var speed = 200
@@ -9,6 +10,7 @@ var gravity = 400
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivot: Node2D = $Pivot
 @onready var cheese_spawn: Marker2D = $Pivot/CheeseSpawn
+@onready var a: Sprite2D = $Pivot/Node2D/A
 
 @export var cheese_scene: PackedScene
 @onready var cheese_counter: MarginContainer = $CanvasLayer/CheeseCounter
@@ -16,6 +18,7 @@ var gravity = 400
 
 func _ready() -> void:
 	animation_tree.active = true
+	Game.last_checkpoint = global_position
 
 
 func _physics_process(delta: float) -> void:
@@ -65,3 +68,9 @@ func fire():
 	cheese.global_position = cheese_spawn.global_position
 	cheese.rotation = cheese_spawn.global_position.direction_to(get_global_mouse_position()).angle()
 	Game.cheese += 1
+	var tween = create_tween()
+	tween.tween_property(a, "position:x", -20, 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(a, "position:x", 0, 0.2)
+
+func kill():
+	global_position = Game.last_checkpoint

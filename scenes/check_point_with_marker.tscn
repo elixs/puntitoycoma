@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnkvyjp12att0"]
+
+[ext_resource type="Script" path="res://scenes/check_point_with_marker.gd" id="1_kn7nh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgjg1"]
+radius = 21.0
+
+[node name="CheckPointWithMaker" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kn7nh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wgjg1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -34.0
+offset_right = 29.0
+offset_bottom = 35.0
+pivot_offset = Vector2(12, 32)
+theme_override_font_sizes/font_size = 48
+text = "a"

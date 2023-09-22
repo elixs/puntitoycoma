@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vwotnogl62cd"]
+[gd_scene load_steps=5 format=3 uid="uid://vwotnogl62cd"]
 
 [ext_resource type="Texture2D" uid="uid://d0magksdpggwp" path="res://icon.svg" id="1_7b8pr"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_yj6r6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6csv6"]
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvngf"]
 size = Vector2(128, 128)
@@ -9,6 +12,7 @@ size = Vector2(128, 128)
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_6csv6")
 script = ExtResource("1_yj6r6")
 metadata/_edit_group_ = true
 
