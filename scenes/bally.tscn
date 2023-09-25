@@ -363,3 +363,17 @@ visible = false
 
 [node name="CheeseCounter" parent="CanvasLayer" instance=ExtResource("7_lyk3e")]
 metadata/_edit_lock_ = true
+
+[node name="GUI" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/GUI"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+value = 100.0

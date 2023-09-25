@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://gbece8k8nikl"]
+
+[ext_resource type="Script" path="res://scenes/slimy.gd" id="1_edie2"]
+[ext_resource type="Texture2D" uid="uid://m51n5pdc0qc0" path="res://assets/textures/Slime/slime-Sheet.png" id="1_x0mgw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4sqjl"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_os680"]
+size = Vector2(26, 6)
+
+[node name="Slimy" type="CharacterBody2D"]
+script = ExtResource("1_edie2")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+position = Vector2(0, -4)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_x0mgw")
+hframes = 8
+vframes = 3
+
+[node name="FloorRayCast" type="RayCast2D" parent="Pivot"]
+position = Vector2(11, 0)
+target_position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4sqjl")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_os680")

@@ -11,6 +11,18 @@ var gravity = 400
 @onready var pivot: Node2D = $Pivot
 @onready var cheese_spawn: Marker2D = $Pivot/CheeseSpawn
 @onready var a: Sprite2D = $Pivot/Node2D/A
+@onready var health_bar = $CanvasLayer/GUI/HealthBar
+
+
+var max_health = 100
+var health = 100:
+	set(value):
+		health = clamp(value, 0, max_health)
+		if(health_bar):
+			health_bar.value = health
+		if health == 0:
+			kill()
+		
 
 @export var cheese_scene: PackedScene
 @onready var cheese_counter: MarginContainer = $CanvasLayer/CheeseCounter
@@ -42,7 +54,6 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x != 0:
 		pivot.scale.x = sign(velocity.x)
-
 	
 	if is_on_floor():
 		if abs(velocity.x) > 10 or move_input:
@@ -74,3 +85,7 @@ func fire():
 
 func kill():
 	global_position = Game.last_checkpoint
+	health = max_health
+
+func take_damage():
+	health -= 10
