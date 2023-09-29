@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Debug="*res://scripts/debug.gd"
 Game="*res://scripts/game.gd"
+LevelManager="*res://scenes/level_manager.tscn"
 
 [display]
 

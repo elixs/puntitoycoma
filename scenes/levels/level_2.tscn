@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://k3hchidikqeo"]
+
+[ext_resource type="PackedScene" uid="uid://bgp70vmwf436p" path="res://scenes/bally.tscn" id="1_mu0a2"]
+[ext_resource type="PackedScene" uid="uid://rsljx4ttbysc" path="res://scenes/kill_zone.tscn" id="3_1y7yi"]
+[ext_resource type="PackedScene" uid="uid://gbece8k8nikl" path="res://scenes/slimy.tscn" id="4_ckth0"]
+[ext_resource type="PackedScene" uid="uid://brew11y4w8imh" path="res://scenes/floor.tscn" id="4_hymft"]
+[ext_resource type="PackedScene" uid="uid://d5pm1eyixk64" path="res://scenes/goal.tscn" id="5_6setl"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Bally" parent="." instance=ExtResource("1_mu0a2")]
+position = Vector2(115, 101)
+
+[node name="KillZone" parent="." instance=ExtResource("3_1y7yi")]
+position = Vector2(249, 318)
+scale = Vector2(90.2, 2.72)
+
+[node name="Slimy" parent="." instance=ExtResource("4_ckth0")]
+position = Vector2(-258, 88)
+
+[node name="Floor" parent="." instance=ExtResource("4_hymft")]
+position = Vector2(157, 201)
+
+[node name="Goal" parent="." instance=ExtResource("5_6setl")]
+position = Vector2(215, 117)

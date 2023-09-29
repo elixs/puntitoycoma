@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d5pm1eyixk64"]
+
+[ext_resource type="Texture2D" uid="uid://cbxkqgc6ony0c" path="res://assets/textures/Retro-Lines-16x16/With-Background/Expanded-Retro-Lines-Enemies.png" id="1_8pfb1"]
+[ext_resource type="Script" path="res://scenes/goal.gd" id="1_wnr5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2s05"]
+size = Vector2(32, 32)
+
+[node name="Goal" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_wnr5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l2s05")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_8pfb1")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)

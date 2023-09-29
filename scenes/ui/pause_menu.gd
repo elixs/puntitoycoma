@@ -5,7 +5,6 @@ extends MarginContainer
 @onready var menu: Button = %Menu
 @onready var exit: Button = %Exit
 
-#@export var main_menu: PackedScene
 
 func _ready() -> void:
 	resume.pressed.connect(_on_resume_pressed)
@@ -31,11 +30,9 @@ func _on_retry_pressed():
 	get_tree().paused = false
 
 func _on_menu_pressed():
-#	if not main_menu:
-#		return
+
 	get_tree().paused = false
-#	get_tree().change_scene_to_packed(main_menu)
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	LevelManager.go_to_main_menu()
 
 func _on_exit_pressed():
 	get_tree().quit()
