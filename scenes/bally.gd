@@ -31,6 +31,7 @@ var health = 100:
 func _ready() -> void:
 	animation_tree.active = true
 	Game.last_checkpoint = global_position
+	
 
 
 func _physics_process(delta: float) -> void:

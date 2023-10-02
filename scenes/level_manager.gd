@@ -7,6 +7,9 @@ extends Node
 
 var current_level = 0
 
+#func _ready():
+#	current_level = cargando
+
 
 func go_to_level(index):
 	if index < levels.size():
