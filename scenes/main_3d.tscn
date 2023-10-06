@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdyagsbemnurm"]
+[gd_scene load_steps=10 format=3 uid="uid://bdyagsbemnurm"]
 
 [ext_resource type="PackedScene" uid="uid://dwnsy851be6og" path="res://scenes/ball_3d.tscn" id="1_du5ao"]
+[ext_resource type="Texture2D" uid="uid://d0magksdpggwp" path="res://icon.svg" id="2_86rkx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_80y6i"]
 bounce = 1.0
@@ -19,6 +20,8 @@ sky_material = SubResource("PanoramaSkyMaterial_rgnq2")
 background_mode = 2
 background_energy_multiplier = 2.18
 sky = SubResource("Sky_tn42n")
+
+[sub_resource type="TorusMesh" id="TorusMesh_meix6"]
 
 [node name="Main3D" type="Node3D"]
 
@@ -44,3 +47,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26841, 1.80925)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eocnx")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.912634, -0.408777, 0, 0.408777, 0.912634, -0.0170703, 0, 0)
+texture_albedo = ExtResource("2_86rkx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_meix6")

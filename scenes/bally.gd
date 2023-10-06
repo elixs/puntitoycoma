@@ -13,13 +13,14 @@ var gravity = 400
 @onready var a: Sprite2D = $Pivot/Node2D/A
 @onready var health_bar = $CanvasLayer/GUI/HealthBar
 
-
 var max_health = 100
 var health = 100:
 	set(value):
 		health = clamp(value, 0, max_health)
 		if(health_bar):
-			health_bar.value = health
+			var tween = create_tween()
+			tween.tween_property(health_bar, "value", health, 0.2)
+#			health_bar.value = health
 		if health == 0:
 			kill()
 		
@@ -90,3 +91,5 @@ func kill():
 
 func take_damage():
 	health -= 10
+	if Game.camera:
+		Game.camera.shake()

@@ -11,6 +11,7 @@ var cheese = 0:
 
 
 var last_checkpoint: Vector2
+var camera: CameraWithShake
 
 func _ready():
 	load_game()
@@ -57,3 +58,5 @@ func _input(event):
 		save_game()
 	if event.is_action_pressed("test2"):
 		load_game()
+
+
