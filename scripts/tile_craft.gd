@@ -6,6 +6,9 @@ extends TileMap
 var data: Dictionary
 
 
+var timer: Timer
+
+
 func _ready():
 	var cells = get_used_cells(0)
 	for coord in cells:
@@ -14,6 +17,11 @@ func _ready():
 			"destructible": tile_data.get_custom_data("destructible"),
 			"health": tile_data.get_custom_data("health")
 		}
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.wait_time = 1
+	add_child(timer)
+	timer.timeout.connect(_on_timer_timeout)
 
 func get_health(coord: Vector2i) -> int:
 	return data[coord].health
@@ -24,3 +32,15 @@ func set_health(coord: Vector2i, value: int) -> void:
 
 func is_destructible(coord: Vector2i) -> bool:
 	return data[coord].destructible
+
+
+func _input(event):
+	if event.is_action_pressed("mine"):
+		timer.start()
+	if event.is_action_released("mine"):
+		timer.stop()
+
+
+func _on_timer_timeout():
+	var coords = local_to_map(get_local_mouse_position())
+	set_cell(0, coords, -1)
