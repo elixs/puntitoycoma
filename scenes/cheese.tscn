@@ -1,9 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb85iplslcuom"]
+[gd_scene load_steps=10 format=3 uid="uid://cb85iplslcuom"]
 
 [ext_resource type="Texture2D" uid="uid://bsq3f8o8gwodl" path="res://assets/textures/Cheese.png" id="1_ere7s"]
 [ext_resource type="Script" path="res://scenes/cheese.gd" id="1_yrfkd"]
+[ext_resource type="Texture2D" uid="uid://byo7607spuytl" path="res://assets/textures/a.png" id="3_c5kui"]
+[ext_resource type="Script" path="res://scripts/up_node_2d.gd" id="3_y744q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxoh6"]
+
+[sub_resource type="Gradient" id="Gradient_82j2a"]
+offsets = PackedFloat32Array(0, 0.796875, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.880208, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mah8g"]
+gradient = SubResource("Gradient_82j2a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tfk8k"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 4, 0)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_max = 10.0
+scale_min = 0.25
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_mah8g")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr3cg"]
+atlas = ExtResource("3_c5kui")
+region = Rect2(62, 38, 9, 9)
 
 [node name="Cheese" type="Area2D"]
 collision_layer = 5
@@ -13,10 +42,23 @@ script = ExtResource("1_yrfkd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mxoh6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TileRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+
+[node name="LifespanTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+process_material = SubResource("ParticleProcessMaterial_tfk8k")
+texture = SubResource("AtlasTexture_sr3cg")
+
+[node name="UpNode2D" type="Node2D" parent="."]
+script = ExtResource("3_y744q")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpNode2D"]
 rotation = -0.785398
 texture = ExtResource("1_ere7s")
 flip_h = true
-
-[node name="TileRaycast" type="RayCast2D" parent="."]
-target_position = Vector2(20, 0)

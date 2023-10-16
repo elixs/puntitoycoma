@@ -17,7 +17,7 @@
 position = Vector2(167, 95)
 
 [node name="CameraWithShake" parent="Bally" instance=ExtResource("2_ivitp")]
-zoom = Vector2(0.5, 0.5)
+process_callback = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_dw406")

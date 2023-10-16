@@ -31,7 +31,9 @@ func set_health(coord: Vector2i, value: int) -> void:
 
 
 func is_destructible(coord: Vector2i) -> bool:
-	return data[coord].destructible
+	if coord in data:
+		return data[coord].destructible
+	return false
 
 
 func _input(event):

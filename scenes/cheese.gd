@@ -3,10 +3,11 @@ extends Area2D
 
 @export var speed = 300
 @onready var tile_raycast = $TileRaycast
+@onready var lifespan_timer = $LifespanTimer
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-
+	lifespan_timer.timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta

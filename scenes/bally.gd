@@ -9,9 +9,10 @@ var gravity = 400
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivot: Node2D = $Pivot
-@onready var cheese_spawn: Marker2D = $Pivot/CheeseSpawn
-@onready var a: Sprite2D = $Pivot/Node2D/A
+@onready var cheese_spawn = $Cannon/CheeseSpawn
+@onready var a: Sprite2D = $Cannon/A
 @onready var health_bar = $CanvasLayer/GUI/HealthBar
+@onready var cannon = $Cannon
 
 var max_health = 100
 var health = 100:
@@ -32,7 +33,10 @@ var health = 100:
 func _ready() -> void:
 	animation_tree.active = true
 	Game.last_checkpoint = global_position
-	
+
+
+func _process(delta):
+	cannon.rotation = (get_global_mouse_position() - cannon.global_position).angle()
 
 
 func _physics_process(delta: float) -> void:
@@ -76,6 +80,7 @@ func _input(event: InputEvent) -> void:
 func fire():
 	if not cheese_scene:
 		return
+	_update_direction()
 	var cheese = cheese_scene.instantiate()
 	get_parent().add_child(cheese)
 	cheese.global_position = cheese_spawn.global_position
@@ -93,3 +98,8 @@ func take_damage():
 	health -= 10
 	if Game.camera:
 		Game.camera.shake()
+
+func _update_direction():
+	var new_direction = sign(get_global_mouse_position().x - global_position.x)
+	if new_direction:
+		pivot.scale.x = new_direction

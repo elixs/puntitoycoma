@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bgp70vmwf436p"]
+[gd_scene load_steps=37 format=3 uid="uid://bgp70vmwf436p"]
 
 [ext_resource type="Script" path="res://scenes/bally.gd" id="1_v7tuq"]
 [ext_resource type="PackedScene" uid="uid://cb85iplslcuom" path="res://scenes/cheese.tscn" id="2_hgctj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy14cle2f4du7" path="res://assets/textures/MouseRun.png" id="4_fgwl8"]
 [ext_resource type="PackedScene" uid="uid://cod382ll076sq" path="res://scenes/ui/pause_menu.tscn" id="6_kkqh0"]
 [ext_resource type="PackedScene" uid="uid://7gr66thgkmng" path="res://scenes/ui/cheese_counter.tscn" id="7_lyk3e"]
+[ext_resource type="Script" path="res://scripts/up_sprite.gd" id="8_l10fc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lx500"]
 radius = 5.83095
@@ -333,17 +334,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_x5803")
 vframes = 6
 
-[node name="CheeseSpawn" type="Marker2D" parent="Pivot"]
-position = Vector2(10, -23)
-
-[node name="Node2D" type="Node2D" parent="Pivot"]
-position = Vector2(-0.93, -18)
-rotation = -0.488699
-
-[node name="A" type="Sprite2D" parent="Pivot/Node2D"]
-scale = Vector2(0.123915, 0.123915)
-texture = ExtResource("3_c02q0")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lx500")
 
@@ -377,3 +367,16 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 value = 100.0
+
+[node name="Cannon" type="Node2D" parent="."]
+position = Vector2(0.07, -19)
+rotation = -0.488699
+
+[node name="A" type="Sprite2D" parent="Cannon"]
+scale = Vector2(0.123915, 0.123915)
+texture = ExtResource("3_c02q0")
+script = ExtResource("8_l10fc")
+
+[node name="CheeseSpawn" type="Marker2D" parent="Cannon"]
+position = Vector2(13.3504, 0.303203)
+rotation = 0.488699
