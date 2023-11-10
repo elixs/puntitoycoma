@@ -1,8 +1,8 @@
 class_name Bally
 extends CharacterBody2D
 
-@export var speed = 200
-@export var jump_speed = 200
+var max_speed = 150
+var jump_speed = 150
 var acceleration = 1000
 var gravity = 400
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_speed
 		Debug.dprint("jump")
 	
-	velocity.x = move_toward(velocity.x, speed * move_input, acceleration * delta)
+	velocity.x = move_toward(velocity.x, max_speed * move_input, acceleration * delta)
 	
 	move_and_slide()
 	
